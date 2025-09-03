@@ -1,8 +1,7 @@
 # 🕷️ Katana + Scrapy Integration
 
-Uma integração poderosa entre **Katana** (descoberta de URLs) e **Scrapy** (web scraping) para coleta automatizada de conteúdo web e imagens.
-
-## 📋 Índice
+Uma ferramenta Web Scrapping feita para ser usada juntamente com o Katana (web crawler).
+## Índice
 
 - [Instalação](#instalação)
 - [Configuração](#configuração)
@@ -13,7 +12,7 @@ Uma integração poderosa entre **Katana** (descoberta de URLs) e **Scrapy** (we
 - [Exemplos de Uso](#exemplos-de-uso)
 - [Troubleshooting](#troubleshooting)
 
-## 🚀 Instalação
+## Instalação
 
 ### Dependências Principais
 
@@ -41,7 +40,7 @@ katana -version
 python -c "from PIL import Image; print('Pillow OK')"
 ```
 
-## ⚙️ Configuração
+## Configuração
 
 ### 1. Configuração do Scrapy (`settings.py`)
 
@@ -75,7 +74,7 @@ class PageItem(scrapy.Item):
     images = scrapy.Field()
 ```
 
-## 🎯 Uso Básico
+## Uso Básico
 
 ### 1. Gerar URLs com Katana
 
@@ -106,7 +105,7 @@ scrapy crawl page -a katana_file="urls.jsonl" -s SPIDER_MODULES=tutorial.spiders
 scrapy crawl page -a katana_file="urls.jsonl" -s IMAGES_STORE=custom_images -s DOWNLOAD_DELAY=2
 ```
 
-## 📚 Comandos Úteis
+## Comandos Úteis
 
 ### Comandos Katana
 
@@ -202,7 +201,7 @@ du -sh images/*/
 grep "item_scraped_count\|file_count" scrapy.log
 ```
 
-### 📊 Comandos de Organização
+### Comandos de Organização
 
 ```bash
 # Ver estrutura completa organizada
@@ -221,7 +220,7 @@ rm -rf scraped_* images/*/
 tar -czf backup_$(date +%Y%m%d).tar.gz scraped_* images/
 ```
 
-## 📁 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 tutorial/
@@ -254,7 +253,7 @@ tutorial/
 └── README.md
 ```
 
-### 🗂️ Organização Automática
+### Organização Automática
 
 O sistema agora organiza automaticamente tanto **imagens** quanto **conteúdo** baseado no nome do arquivo JSON de entrada:
 
@@ -272,7 +271,7 @@ images/blog_urls/     # Imagens
 scraped_blog_urls/    # Conteúdo HTML
 ```
 
-## 🔧 Configurações Avançadas
+## Configurações Avançadas
 
 ### Pipeline Customizado de Imagens
 
@@ -321,7 +320,7 @@ DEFAULT_REQUEST_HEADERS = {
 }
 ```
 
-## 💡 Exemplos de Uso
+## Exemplos de Uso
 
 ### Workflow Completo
 
@@ -361,7 +360,7 @@ katana -u https://noticias.com -d 1 -o noticias_$(date +%Y%m%d).jsonl
 scrapy crawl page -a katana_file="noticias_$(date +%Y%m%d).jsonl"
 ```
 
-## 🚨 Troubleshooting
+## Troubleshooting
 
 ### Problemas Comuns
 
@@ -404,7 +403,7 @@ scrapy crawl page -a katana_file="urls.jsonl" -L INFO -s LOG_FILE=debug.log
 grep -E "(item_scraped_count|file_count|elapsed_time)" debug.log
 ```
 
-## 📊 Formatos Suportados
+## Formatos Suportados
 
 ### Formato Katana Original
 ```json
@@ -427,21 +426,8 @@ grep -E "(item_scraped_count|file_count|elapsed_time)" debug.log
 }
 ```
 
-## 🏆 Características
 
-- ✅ **Dual Format**: Suporta formato Katana e simplificado
-- ✅ **Auto Organization**: Pastas nomeadas automaticamente por arquivo JSON
-- ✅ **Separated Images**: Imagens organizadas por origem do arquivo
-- ✅ **Separated Content**: Conteúdo HTML organizado por origem do arquivo
-- ✅ **Image Pipeline**: Download automático de imagens com detecção de extensão
-- ✅ **Content Processing**: HTML original + formatado
-- ✅ **URL Filtering**: Remove duplicatas e URLs inválidas
-- ✅ **Hash Naming**: Nomes únicos baseados em hash SHA1
-- ✅ **Error Handling**: Tratamento robusto de erros
-- ✅ **Scalable**: Processa milhares de URLs
-- ✅ **Configurable**: Altamente customizável
-
-## 📝 Licença
+## Licença
 
 Este projeto é fornecido como está, para fins educacionais e de pesquisa. Respeite sempre os robots.txt e políticas dos sites.
 
