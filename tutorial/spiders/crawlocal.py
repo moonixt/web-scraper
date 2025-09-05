@@ -14,14 +14,25 @@ class QuotesSpider(scrapy.Spider):
     name = "page"
 
     def __init__(self, katana_file=None, *args, **kwargs):
-        super(QuotesSpider, self).__init__(*args, **kwargs)
-        self.katana_file = katana_file
-        
+            super(QuotesSpider, self).__init__(*args, **kwargs)
+            self.katana_file = katana_file
+            self.show_banner()
+            
+    
+    def show_banner(self, katana_file=None):
+            banner = f"""
+            ==========================================
+            Iniciando o Spider para: {self.katana_file}
+            ==========================================
+            """
+            self.logger.info(f"\n{banner}")
+           
+
         # Extrair nome do arquivo sem extensão para organizar as imagens
-        if katana_file:
-            self.katana_filename = Path(katana_file).stem
-        else:
-            self.katana_filename = 'default'
+            if katana_file:
+                self.katana_filename = Path(katana_file).stem
+            else:
+                self.katana_filename = 'default'
 
     def start_requests(self):
         if not self.katana_file:

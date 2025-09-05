@@ -1,10 +1,6 @@
-security-crawl-maze/
-cmd/katana/katana
-katana
-*.exe
-katana_*/
-katana_*/
+tutorial/spiders/scraped_extraction/
+tutorial/images/
 dist/
-
 .vscode
 .devcontainer
+README.md
