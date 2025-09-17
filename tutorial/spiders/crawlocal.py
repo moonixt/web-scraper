@@ -13,13 +13,8 @@ from tutorial.items import PageItem
 class QuotesSpider(scrapy.Spider):
     name = "page"
 
-    def __init__(self, katana_file=None, *args, **kwargs):
-            super(QuotesSpider, self).__init__(*args, **kwargs)
-            self.katana_file = katana_file
-            self.show_banner()
-            
-    
     def show_banner(self, katana_file=None):
+            
             banner = f"""
             ==========================================
             Iniciando o Spider para: {self.katana_file}
